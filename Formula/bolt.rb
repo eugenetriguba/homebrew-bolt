@@ -26,10 +26,19 @@ class Bolt < Formula
     up_status_output = shell_output("#{bin}/bolt status")
     assert_match "20240101122412", up_status_output
     assert_match "my_first_migration", up_status_output
+    assert_match "X", up_status_output
+
     system bin/"bolt", "down"
     down_status_output = shell_output("#{bin}/bolt status")
-    refute_match "20240101122412", down_status_output
-    refute_match "my_first_migration", down_status_output
+    assert_match "20240101122412", down_status_output
+    assert_match "my_first_migration", down_status_output
+    refute_match "X", down_status_output
+
+    rm "migrations/20240101122412_my_first_migration.sql"
+    status_output = shell_output("#{bin}/bolt status")
+    refute_match "20240101122412", status_output
+    refute_match "my_first_migration", status_output
+    refute_match "X", status_output
   end
 end
 
