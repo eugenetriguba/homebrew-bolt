@@ -1,8 +1,8 @@
 class Bolt < Formula
   desc "Lightweight and language-agnostic database migration tool"
   homepage "https://github.com/eugenetriguba/bolt"
-  url "https://github.com/eugenetriguba/bolt/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "404f9aa97b41cdc52826ccc04acfdc6ed7726b514983f9edb561b995d16259b2"
+  url "https://github.com/eugenetriguba/bolt/archive/refs/tags/v0.10.1.tar.gz"
+  sha256 "3e139fbb96cc1182e7f8e86c3b4636b0a9e916c0c9500b0569685c4b67f3ef51"
   license "MIT"
 
   depends_on "go" => :build
